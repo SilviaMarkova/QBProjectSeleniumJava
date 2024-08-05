@@ -55,7 +55,7 @@ public class NavigationPage extends BasePage {
     private WebElement discordLink;
 
     @FindBy(css = ".toggleButton_gllP")
-    private WebElement switchModeButton;
+    private WebElement switchThemeButton;
 
     @FindBy(css = ".DocSearch.DocSearch-Button")
     private WebElement searchButton;
@@ -72,9 +72,15 @@ public class NavigationPage extends BasePage {
         searchButton.click();
     }
 
-    public void mouseClickSearchButton() {
+    public void jsClickSearchButton() {
         clickElementUsingJS(searchButton);
 
+    }
+
+    public void clickSwitchThemeToggle() {
+        waitForElementToBeClickable(switchThemeButton);
+        switchThemeButton.click();
+        waitPageToLoad();
     }
 
     public void keyboardClickSearchButton() {

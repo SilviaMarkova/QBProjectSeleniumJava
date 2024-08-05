@@ -27,7 +27,7 @@ public class CorrectSearchResultsOnExactSearchMatchTest extends Hooks {
         boolean isWordPresentInDocsPageBreadcrumbs = docsPage.isWordPresentInBreadcrumbs(searchWord);
 
         //Open the Search modal
-        navigationPage.mouseClickSearchButton();
+        navigationPage.clickSearchButton();
 
         //Search for a word that would result in an exact match
         searchModal.performSearch(searchWord);

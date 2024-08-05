@@ -29,7 +29,7 @@ public class SearchApiAndVerifyProtocolsTest extends Hooks {
 
 
     @Test (groups = {"Regression"})
-    public void searchApiAndOpenProtocolsLink() throws InterruptedException {
+    public void searchApiAndOpenProtocolsLink() {
 
         String expectedUrl = "https://webdriver.io/docs/api";
         String searchWord = "Click";
@@ -43,7 +43,7 @@ public class SearchApiAndVerifyProtocolsTest extends Hooks {
         softAssert.assertTrue(sidebarPage.isProtocolsSectionDisplayed(), "The Protocols section is not displayed!");
 
         //Open the Search modal
-        navigationPage.mouseClickSearchButton();
+        navigationPage.clickSearchButton();
 
         //Enter the "Click" word in the search field and press Enter
         searchModal.performSearch(searchWord);

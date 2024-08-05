@@ -13,16 +13,19 @@ public class SearchModal extends BasePage {
         super();
     }
 
-    @FindBy(css = "#docsearch-input")
+    @FindBy(css="#docsearch-input")
     private WebElement searchInputField;
 
-    @FindBy(css = ".DocSearch-Dropdown .DocSearch-Hits ul[role='listbox'] li.DocSearch-Hit")
+    @FindBy(css=".DocSearch-Reset")
+    private WebElement clearInputButton;
+
+    @FindBy(css=".DocSearch-Dropdown .DocSearch-Hits ul[role='listbox'] li.DocSearch-Hit")
     private List<WebElement> searchResults;
 
-    @FindBy(className = "DocSearch-Modal")
+    @FindBy(className="DocSearch-Modal")
     private WebElement searchModal;
 
-    @FindBy(css = ".DocSearch-Title")
+    @FindBy(css=".DocSearch-Title")
     private WebElement searchTitle;
 
 
@@ -55,18 +58,13 @@ public class SearchModal extends BasePage {
         confirmSearchQuery();
     }
 
-    public void performSearchUsingKeyboard(String searchText) {
-        waitPageToLoad();
-        keyboardPressControlAndKKey();
-        moveToElementAndClick(searchInputField);
-        keyboardDeleteText();
-        actionsTypeIn(searchText);
-        waitPageToLoad();
-        confirmSearchQuery();
+    public void clickClearInputButton(){
+        clearInputButton.click();
     }
 
-    public boolean isSearchModalPresent() {
-        return searchModal.isDisplayed();
+    public boolean isSearchInputFieldEmpty() {
+        String inputValue = searchInputField.getAttribute("value");
+        return inputValue == null || inputValue.isEmpty();
     }
 
     public List<WebElement> getSearchResults() {
@@ -76,7 +74,6 @@ public class SearchModal extends BasePage {
 
     public boolean isSearchTextPresent(String searchText) {
         List<WebElement> results = getSearchResults();
-
         return results.stream()
                 .allMatch(result -> result.getText().contains(searchText.toLowerCase()));
     }

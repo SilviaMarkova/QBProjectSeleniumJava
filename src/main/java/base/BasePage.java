@@ -35,12 +35,12 @@ public class BasePage {
     }
 
 
-    public void navigateToBaseURL() {
+    protected void navigateToBaseURL() {
         getDriver().get(EnvironmentsConstants.BASE_URL);
         waitPageToLoad();
     }
 
-    public void navigateToUrl(String url) {
+    protected void navigateToUrl(String url) {
         getDriver().get(url);
     }
 
@@ -153,7 +153,7 @@ public class BasePage {
     }
 
     protected void keyboardPressBackspaceKey() {
-        actions.sendKeys(Keys.CONTROL, "a").sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.BACK_SPACE).perform();
     }
 
     protected void keyboardPressEscapeKey() {

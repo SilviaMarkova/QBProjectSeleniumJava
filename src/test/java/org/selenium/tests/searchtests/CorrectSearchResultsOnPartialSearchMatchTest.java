@@ -21,7 +21,7 @@ public class CorrectSearchResultsOnPartialSearchMatchTest extends Hooks {
         boolean isPartOfWordPresent = searchModal.isPartOfSearchWordPresentOnPage(searchWord);
 
         //Open the Search modal
-        navigationPage.mouseClickSearchButton();
+        navigationPage.clickSearchButton();
 
         //Search for a word that would result in no results
         searchModal.performSearch(searchWord);

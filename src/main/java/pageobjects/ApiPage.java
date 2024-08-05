@@ -14,9 +14,6 @@ public class ApiPage extends BasePage {
         super();
     }
 
-    @FindBy(css="div[class='theme-doc-markdown markdown'] header h1")
-    private WebElement mainHeader;
-
     @FindBy(css=".breadcrumbs .breadcrumbs__item:nth-of-type(2)")
     private WebElement breadcrumbLink;
 
@@ -37,11 +34,6 @@ public class ApiPage extends BasePage {
         waitForElementVisibility(mainHeading);
         String headingText = mainHeading.getText();
         return headingText.toLowerCase().contains(word.toLowerCase());
-    }
-
-    public String getWordBreadcrumbLinkText(){
-        String breadCrumbText = breadcrumbLink.getText();
-        return breadCrumbText;
     }
 
     public boolean isWordPresentInBreadcrumbs(String word) {

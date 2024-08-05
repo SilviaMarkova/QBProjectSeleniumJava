@@ -21,7 +21,7 @@ public class NoResultsInvalidSearchWordsTest extends Hooks {
         String expectedSearchTitle = "No results for \"" + searchWord + "\"";
 
         //Open the Search modal
-        navigationPage.mouseClickSearchButton();
+        navigationPage.clickSearchButton();
 
         //Search for a word that would result in no results
         searchModal.performSearch(searchWord);
