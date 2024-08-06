@@ -1,8 +1,6 @@
 package pageobjects;
 
 import base.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,7 +13,7 @@ public class SearchModal extends BasePage {
         super();
     }
 
-    @FindBy(css = "#docsearch-input")
+    @FindBy(css = ".DocSearch-Input")
     private WebElement searchInputField;
 
     @FindBy(css = ".DocSearch-Reset")
