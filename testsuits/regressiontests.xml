@@ -8,8 +8,8 @@
     </groups>
     <test name="RegressionTests">
         <classes>
-            <class name="org.selenium.tests.E2Etests.SearchApiAndVerifyProtocolsTest"/>
-            <class name="org.selenium.tests.searchtests.NoResultsInvalidSearchWordsTest"/>
+            <class name="tests.E2Etests.SearchApiAndVerifyProtocolsTest"/>
+            <class name="tests.searchtests.NoResultsInvalidSearchWordsTest"/>
         </classes>
     </test>
 </suite>

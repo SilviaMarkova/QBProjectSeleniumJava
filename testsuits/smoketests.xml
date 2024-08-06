@@ -8,8 +8,8 @@
     </groups>
     <test name="SmokeTests">
         <classes>
-            <class name="org.selenium.tests.searchtests.CorrectSearchResultsOnExactSearchMatchTest"/>
-            <class name="org.selenium.tests.navigationtests.VerifyGithubLinkTest"/>
+            <class name="tests.searchtests.CorrectSearchResultsOnExactSearchMatchTest"/>
+            <class name="tests.navigationtests.VerifyGithubLinkTest"/>
         </classes>
     </test>
 </suite>
