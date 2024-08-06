@@ -1,6 +1,8 @@
 package pageobjects;
 
 import base.BasePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,19 +15,19 @@ public class SearchModal extends BasePage {
         super();
     }
 
-    @FindBy(css="#docsearch-input")
+    @FindBy(css = "#docsearch-input")
     private WebElement searchInputField;
 
-    @FindBy(css=".DocSearch-Reset")
+    @FindBy(css = ".DocSearch-Reset")
     private WebElement clearInputButton;
 
-    @FindBy(css=".DocSearch-Dropdown .DocSearch-Hits ul[role='listbox'] li.DocSearch-Hit")
+    @FindBy(css = ".DocSearch-Dropdown .DocSearch-Hits ul[role='listbox'] li.DocSearch-Hit")
     private List<WebElement> searchResults;
 
-    @FindBy(className="DocSearch-Modal")
+    @FindBy(className = "DocSearch-Modal")
     private WebElement searchModal;
 
-    @FindBy(css=".DocSearch-Title")
+    @FindBy(css = ".DocSearch-Title")
     private WebElement searchTitle;
 
 
@@ -58,7 +60,7 @@ public class SearchModal extends BasePage {
         confirmSearchQuery();
     }
 
-    public void clickClearInputButton(){
+    public void clickClearInputButton() {
         clearInputButton.click();
     }
 

@@ -1,4 +1,4 @@
-package org.selenium.tests.searchtests;
+package tests.searchtests;
 
 import base.Hooks;
 import org.testng.annotations.Test;
@@ -6,19 +6,19 @@ import pageobjects.NavigationPage;
 import pageobjects.SearchModal;
 import utils.DataProviderUtils;
 
-public class CorrectSearchResultsOnPartialSearchMatchTest extends Hooks {
+public class NoResultsInvalidSearchWordsTest extends Hooks {
 
-    public CorrectSearchResultsOnPartialSearchMatchTest() {
+    public NoResultsInvalidSearchWordsTest() {
         super();
     }
 
     NavigationPage navigationPage = new NavigationPage();
     SearchModal searchModal = new SearchModal();
 
-    @Test(dataProvider = "PartialSearchMatches", dataProviderClass = DataProviderUtils.class)
+    @Test(groups = {"Regression"}, dataProvider = "InvalidSearchWords", dataProviderClass = DataProviderUtils.class)
     public void verifyCorrectResultsWithExactQueryMatch(String searchWord) {
 
-        boolean isPartOfWordPresent = searchModal.isPartOfSearchWordPresentOnPage(searchWord);
+        String expectedSearchTitle = "No results for \"" + searchWord + "\"";
 
         //Open the Search modal
         navigationPage.clickSearchButton();
@@ -26,8 +26,8 @@ public class CorrectSearchResultsOnPartialSearchMatchTest extends Hooks {
         //Search for a word that would result in no results
         searchModal.performSearch(searchWord);
 
-        //Verify that part of the searched word is present anywhere on the page
-        softAssert.assertTrue(isPartOfWordPresent, "Part of the searched word is not present on the page!");
+        //Verify that a text is present indicating that there are no results for the searched word
+        softAssert.assertEquals(searchModal.getSearchTitleText(), expectedSearchTitle);
 
         softAssert.assertAll();
 

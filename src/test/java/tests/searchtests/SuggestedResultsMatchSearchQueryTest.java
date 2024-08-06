@@ -1,4 +1,4 @@
-package org.selenium.tests.searchtests;
+package tests.searchtests;
 
 import base.Hooks;
 import org.testng.annotations.Test;

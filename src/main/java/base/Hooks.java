@@ -31,7 +31,7 @@ public class Hooks extends BasePage {
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE) {
-            File destFile = new File("screenshot" + File.separator + result.getTestClass().getRealClass().getSimpleName()
+            File destFile = new File("screenshots" + File.separator + result.getTestClass().getRealClass().getSimpleName()
                     + "_" + result.getMethod().getMethodName() + ".png");
             takeScreenshot(destFile);
         }

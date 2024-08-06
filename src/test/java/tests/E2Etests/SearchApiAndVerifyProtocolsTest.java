@@ -1,4 +1,4 @@
-package org.selenium.tests.E2Etests;
+package tests.E2Etests;
 
 import base.Hooks;
 import enums.ProtocolItems;

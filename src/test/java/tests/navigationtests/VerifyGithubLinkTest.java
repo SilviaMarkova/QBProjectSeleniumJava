@@ -1,4 +1,4 @@
-package org.selenium.tests.navigationtests;
+package tests.navigationtests;
 
 import base.Hooks;
 import org.testng.annotations.Test;
