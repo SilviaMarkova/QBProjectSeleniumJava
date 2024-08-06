@@ -13,7 +13,7 @@ public class SidebarPage extends BasePage {
         super();
     }
 
-    @FindBy(css = "nav.menu .theme-doc-sidebar-menu .menu__list-item")
+    @FindBy(css = ".theme-doc-sidebar-menu.menu__list .menu__link")
     private List<WebElement> sidebarItems;
 
     @FindBy(css = ".menu__list-item-collapsible a[href*='/docs/api/protocols']")
@@ -27,7 +27,7 @@ public class SidebarPage extends BasePage {
 
     public boolean isWordPresentInSidebar(String searchWord) {
         return sidebarItems.stream()
-                .anyMatch(item -> item.getText().toLowerCase().trim().contains(searchWord.toLowerCase().trim()));
+                .anyMatch(item -> item.getText().toLowerCase().trim().contains(searchWord.toLowerCase()));
     }
 
     public void printSidebarItems() {
